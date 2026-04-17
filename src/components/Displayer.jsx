@@ -1,24 +1,13 @@
-function Displayer({ items, setItems }: any) {
-  //   const handleClick = (id: number) => {
-  //     setItems((prev: any) =>
-  //       prev.map((item: any) =>
-  //         item.id === id ? { ...item, isChecked: !item.isChecked } : item,
-  //       );
-  //     );
-  //   };
-  const handleClick = (id: number) => {
-    setItems((prev: any) =>
-      prev.map((item: any) =>
-        item.id === id ? { ...item, isChecked: !item.isChecked } : item,
-      ),
-    );
+function Displayer({ items, setItems }) {
+  const handleClick = (id) => {
+    console.log("");
   };
 
   return (
     <>
       {items && (
         <div className="mt-5 w-2/4 px-5">
-          {items.map((item: any) => (
+          {items.map((item) => (
             <div
               className="flex justify-between items-center mb-2"
               key={item.id}

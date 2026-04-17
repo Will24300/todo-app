@@ -1,9 +1,13 @@
-function InputForm({ setItems }: any) {
-  const handleItem = (formData: FormData) => {
-    const itemData = formData.get("item") as string;
-    setItems((prev: string[]) => [
+function InputForm({ setItems }) {
+  const handleItem = (formData) => {
+    const itemData = formData.get("item");
+    setItems((prev) => [
       ...prev,
-      { isChecked: false, id: Date.now(), item: itemData },
+      {
+        id: Date.now(),
+        isChecked: false,
+        name: itemData,
+      },
     ]);
   };
   return (
