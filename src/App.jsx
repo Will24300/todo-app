@@ -4,7 +4,6 @@ import Displayer from "./components/Displayer";
 
 function App() {
   const [items, setItems] = useState([]);
-  console.log(items);
 
   return (
     <section className="flex flex-col justify-center items-center">

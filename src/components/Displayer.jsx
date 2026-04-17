@@ -1,6 +1,14 @@
 function Displayer({ items, setItems }) {
   const handleClick = (id) => {
-    console.log("");
+    setItems((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, isChecked: !item.isChecked } : item,
+      ),
+    );
+  };
+
+  const handleDelete = (id) => {
+    setItems((prev) => prev.filter((p) => p.id !== id));
   };
 
   return (
@@ -15,12 +23,15 @@ function Displayer({ items, setItems }) {
               <div className="flex justify-start items-center gap-4">
                 <input type="checkbox" onClick={() => handleClick(item.id)} />
                 <p
-                  className={`${item.isChecked ? "underline text-gray-400" : "text-gray-400"}`}
+                  className={`${item.isChecked ? "line-through text-gray-400" : "text-gray-400"}`}
                 >
-                  {item.item}
+                  {item.name}
                 </p>
               </div>
-              <button className="bg-red-600 text-white px-5 rounded cursor-pointer">
+              <button
+                className="bg-red-600 text-white px-5 rounded cursor-pointer"
+                onClick={() => handleDelete(item.id)}
+              >
                 DEL
               </button>
             </div>
